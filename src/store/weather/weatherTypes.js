@@ -1,0 +1,8 @@
+export const weatherTypes = {
+    SET_INPUT: "SET_INPUT",
+    GET_WEATHER_ICON: "GET_WEATHER_ICON",
+
+
+    ADD_FAVORITE: "ADD_FAVORITE",
+    REMOVE_FAVORITE: "REMOVE_FAVORITE",
+}

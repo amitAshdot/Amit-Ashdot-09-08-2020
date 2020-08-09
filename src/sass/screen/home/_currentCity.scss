@@ -1,0 +1,38 @@
+.current-city {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid $color-grey-dark-4;
+  box-shadow: 0rem 0.4rem 1rem 0rem rgba($color-black, 0.5);
+  width: 50vw;
+  min-width: 70rem;
+  max-width: 160rem;
+  height: 55vh;
+  min-height: 40rem;
+  padding: 0rem 2rem 2rem;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 12rem;
+    padding-top: 0rem;
+
+    &__left {
+      display: flex;
+      &--image {
+        max-height: 4.5rem;
+      }
+      &--name {
+        font-size: 1.6rem;
+      }
+      &--temperature {
+        font-size: 2rem;
+      }
+    }
+  }
+  &__condition {
+    font-size: 4rem;
+    margin: auto;
+  }
+}

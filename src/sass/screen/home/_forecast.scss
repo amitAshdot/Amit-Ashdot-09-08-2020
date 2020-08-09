@@ -1,0 +1,25 @@
+.forecast {
+  display: flex;
+  height: 40%;
+  justify-content: space-evenly;
+
+  &__box {
+    width: calc(100% / 5.5);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    border: 1px solid;
+    height: 100%;
+    justify-content: center;
+    box-shadow: 0rem 0.4rem 1rem 0rem rgba($color-black, 0.5);
+
+    &__day {
+      font-size: 1.6rem;
+    }
+    &__temp {
+      font-size: 2rem;
+      font-weight: 800;
+    }
+  }
+}

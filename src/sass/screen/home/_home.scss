@@ -1,0 +1,13 @@
+.main {
+  width: $grid-width;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage {
+  &__input {
+    margin: 5rem;
+  }
+}
