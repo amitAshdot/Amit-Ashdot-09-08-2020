@@ -10,12 +10,12 @@ const HomepageBox = () => {
     const weatherText = currentCity.searchArr[0].WeatherText
     const style = isDay ?
         {
-            backgroundImage: "linear-gradient(to right bottom,#667083,#282c34)",
-            color: "#9197fb",
-        } :
-        {
             backgroundImage: "linear-gradient(to right bottom,#2998ff,#5643fa)",
             color: "#f7f7f7",
+        } :
+        {
+            backgroundImage: "linear-gradient(to right bottom,#667083,#282c34)",
+            color: "#9197fb",
         }
     return (
         <div className="current-city" style={style}>

@@ -2,12 +2,15 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { checkDay } from '../../../../util/functions';
 import CurrentCityForecastItem from './CurrentCityForecastItem';
-
+import { calcFahrenheit } from '../../../../util/functions'
 const CurrentCityForeast = () => {
     const weather = useSelector(state => state.weatherReducer);
+    const settings = useSelector(state => state.settingsReducer);
     const map = weather.forecast.DailyForecasts.map((item, i) => {
         const weekday = checkDay(i)
-        return <CurrentCityForecastItem weekday={weekday} minTemp={item.Temperature.Minimum.Value} maxTemp={item.Temperature.Maximum.Value} key={i} />
+        const minTemp = settings.celsius ? item.Temperature.Minimum.Value : calcFahrenheit(item.Temperature.Minimum.Value)
+        const maxTemp = settings.celsius ? item.Temperature.Maximum.Value : calcFahrenheit(item.Temperature.Maximum.Value)
+        return <CurrentCityForecastItem weekday={weekday} minTemp={minTemp} maxTemp={maxTemp} key={i} />
     }).reverse()
 
     return (

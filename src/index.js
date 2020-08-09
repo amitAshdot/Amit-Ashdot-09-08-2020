@@ -9,12 +9,14 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 import weatherReducer from './store/weather/reducer';
+import settingsReducer from './store/settings/reducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import './sass/main.scss';
 
 const rootReducer = combineReducers({
   weatherReducer: weatherReducer,
+  settingsReducer: settingsReducer,
 });
 const store = createStore(
   rootReducer,
@@ -22,14 +24,10 @@ const store = createStore(
 );
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode store={store}>
+    <React.StrictMode>
       <App />
     </React.StrictMode>
   </Provider>,
   document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();

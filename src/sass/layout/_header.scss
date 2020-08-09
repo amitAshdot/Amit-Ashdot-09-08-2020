@@ -46,10 +46,43 @@
     }
   }
 
+  &__settings {
+    display: flex;
+    border: 1px solid $color-secondary-light;
+    padding: 0.5rem 3rem;
+
+    &__type {
+      display: flex;
+      align-items: center;
+      margin: 0.5rem;
+      color: $color-primary-light;
+      transition: color 0.5s;
+
+      &--active {
+        margin: 0.5rem;
+        color: $color-secondary-light;
+      }
+    }
+
+    &__dark-mode {
+      color: $color-secondary-light;
+    }
+  }
+
   &__logo {
     font-size: 3rem;
   }
 
   @include respond(tab-land) {
+  }
+}
+
+.mode {
+  transition: all 1s;
+  &__light {
+    box-shadow: inset 0 0 1rem $color-black;
+  }
+  &__dark {
+    box-shadow: 0 0 1rem $color-secondary-light;
   }
 }

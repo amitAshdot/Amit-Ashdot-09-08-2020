@@ -1,6 +1,6 @@
 import React from 'react'
-import SearchInput from '../../ui/SearchInput';
-import HomepageBox from './HomepageBox';
+import SearchInput from '../components/ui/SearchInput';
+import HomepageBox from '../components/layout/homePage/HomepageBox';
 
 const HomePage = () => {
     return (

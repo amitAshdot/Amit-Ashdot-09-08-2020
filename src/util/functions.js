@@ -3,7 +3,8 @@ export const getWeatherIconNumber = (cityKey) => {
 };
 
 const findDayIndex = (today, i) => {
-    return today - i > 0 ? today - i : noOfDays - i
+    const noOfDays = 7
+    return today - i >= 0 ? today - i : noOfDays - i
 }
 
 export const checkDay = (daysBeforeToday) => {
@@ -14,5 +15,10 @@ export const checkDay = (daysBeforeToday) => {
 
 export const checkIfDay = () => {
     let todayDate = new Date().getHours()
-    return todayDate <= 19
+    return todayDate <= 19 && todayDate >= 6
 };
+
+export const calcFahrenheit = (celsius) => {
+    return (celsius * (9 / 5) + 32).toFixed(1)
+};
+
