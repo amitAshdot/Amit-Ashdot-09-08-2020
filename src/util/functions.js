@@ -2,13 +2,8 @@ export const getWeatherIconNumber = (cityKey) => {
 
 };
 
-
 const findDayIndex = (today, i) => {
-    let sub = today - i, noOfDays = 7
-    if (today - i) {
-        return noOfDays - i
-    }
-    return sub
+    return today - i > 0 ? today - i : noOfDays - i
 }
 
 export const checkDay = (daysBeforeToday) => {
