@@ -1,21 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { checkDay } from '../util/functions';
-import CurrentCityForecastItem from '../components/layout/homePage/currentCity/CurrentCityForecastItem'
+import FavCityItem from '../components/layout/favoritePage/favCityItem.js'
+import { getFavorite } from '../store/favorite/actions'
 const FavPage = () => {
-    const weather = useSelector(state => state.weatherReducer);
+    const favorite = useSelector(state => state.favoriteReducer);
     const dispatch = useDispatch();
 
-    const { favCities } = weather;
-    const map = favCities.map((item, i) => {
-        const weekday = checkDay(i)
-        // debugger
-        // return <CurrentCityForecastItem weekday={weekday} minTemp={item.Temperature.Minimum.Value} key={i} />
-    })
+    const { favCities } = favorite;
+    const map = favCities.length > 0 ? favCities.map((item, i) => {
+        // return <FavCityItem weekday={weekday} minTemp={item.Temperature.Minimum.Value} key={i} />
+        return <FavCityItem item={item} key={i} />
+    }) : null
+
+
+    useEffect(() => {
+        dispatch(getFavorite())
+        console.log(favorite.favCities)
+    }, [favorite.favCities])
     return (
         <div className="favorite">
-            {/* {map} */}
-
+            {map}
         </div>
     )
 }

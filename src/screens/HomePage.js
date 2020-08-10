@@ -9,10 +9,20 @@ const HomePage = () => {
     const weatherState = useSelector(state => state.weatherReducer);
     const dispatch = useDispatch();
     const hasAutoComplete = weatherState.userSearchInput ? <AutoComplete /> : null
-
+    const { userSearchInput } = weatherState
     useEffect(() => {
-        dispatch(getAutoComplete(weatherState.userSearchInput))
-    }, [weatherState.userSearchInput])
+        if (userSearchInput !== ' ' && userSearchInput.length !== 0) {
+            const timer = setTimeout(() => {
+                dispatch(getAutoComplete(weatherState.userSearchInput))
+            }, 300);
+            return () => {
+                clearTimeout(timer);
+            };
+        }
+    }, [userSearchInput]);
+    // useEffect(() => {
+    //     dispatch(getAutoComplete(weatherState.userSearchInput))
+    // }, [weatherState.userSearchInput])
 
     const handleChange = (event) => {
         event.preventDefault();

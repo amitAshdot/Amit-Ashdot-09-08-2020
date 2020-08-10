@@ -15,7 +15,8 @@ export const checkDay = (daysBeforeToday) => {
 
 export const checkIfDay = () => {
     let todayDate = new Date().getHours()
-    return todayDate <= 19 && todayDate >= 6
+
+    return todayDate <= 18 && todayDate >= 6
 };
 
 export const calcFahrenheit = (celsius) => {

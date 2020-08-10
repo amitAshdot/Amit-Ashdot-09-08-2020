@@ -4,12 +4,13 @@ const CurrentCityForecastItem = (props) => {
     const { i, weekday, minTemp } = props
     return (
         <div className="favorite__box" key={i}>
-            <div className="favorite__box__day">
+            {/* <div className="favorite__box__day">
                 <p>{weekday}</p>
             </div>
             <div className="favorite__box__temp">
                 <p>{minTemp}</p>
-            </div>
+            </div> */}
+            {props.item}
         </div>
     )
 }

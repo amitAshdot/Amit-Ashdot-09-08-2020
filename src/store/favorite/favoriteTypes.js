@@ -1,0 +1,6 @@
+
+export const favoriteTypes = {
+    GET_FAVORITE: "GET_FAVORITE",
+    ADD_FAVORITE: "ADD_FAVORITE",
+    REMOVE_FAVORITE: "REMOVE_FAVORITE",
+}

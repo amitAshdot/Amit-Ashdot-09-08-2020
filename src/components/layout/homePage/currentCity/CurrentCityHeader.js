@@ -1,23 +1,25 @@
 import React from 'react'
 import FavIcon from '../../../ui/icons/FavIcon';
 import { useSelector, useDispatch } from 'react-redux';
-import { addFav, removeFav } from '../../../../store/weather/actions';
+import { addFav, removeFav } from '../../../../store/favorite/actions';
 import FavIconEmpty from '../../../ui/icons/FavIconEmpty';
 import { calcFahrenheit } from '../../../../util/functions';
 
 const CurrentCityHeader = () => {
     const weatherState = useSelector(state => state.weatherReducer);
     const settings = useSelector(state => state.settingsReducer);
-
-    const { weatherIcon, favCities, currentCityKey, searchArr } = weatherState;
+    const favorite = useSelector(state => state.favoriteReducer);
+    const { weatherIcon, currentCityKey, searchArr } = weatherState;
+    const { favCities } = favorite;
     const dispatch = useDispatch();
     const city = searchArr[0]
     const iconeUrl = `https://developer.accuweather.com/sites/default/files/${weatherIcon}-s.png`
-    let isFav = favCities.includes(currentCityKey)
+
+    let isFav = favCities ? favCities.includes(currentCityKey) : null
 
     const handleClick = () => {
-        isFav ? dispatch(removeFav(weatherState.currentCityKey)) :
-            dispatch(addFav(weatherState.currentCityKey))
+        isFav ? dispatch(removeFav(favorite.favCities, weatherState.currentCityKey)) :
+            dispatch(addFav(favorite.favCities, weatherState.currentCityKey))
     }
 
     const favIcon = (

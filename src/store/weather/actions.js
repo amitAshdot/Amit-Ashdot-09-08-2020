@@ -1,37 +1,43 @@
 import { weatherTypes } from './weatherTypes'
-
+import axios from 'axios';
+import { url, key } from '../../util/api'
 import autocompleteList from '../../dataMoc/autoComplete.json'
 
 export const getAutoComplete = (autoCompleteText) => {
+    return async dispatch => {
+        dispatch(autoCompleteStart())
+        try {
+            const res = await axios.get(`${url}/locations/v1/cities/autocomplete?apikey=${key}&q=${autoCompleteText}`);
+            autoCompletesuccess(res.data)
+        } catch (error) {
+            autoCompleteFailed(error)
+        }
+    }
+}
 
-    // fetch.....
-    const autoCompleteList = autocompleteList
+export const autoCompletesuccess = (autoCompleteList) => {
+    console.log(autoCompleteList)
 
-    const newList = autoCompleteList.filter(local => {
-        return local.LocalizedName.toLowerCase().includes(autoCompleteText.toLowerCase())
-    })
     return {
-        type: weatherTypes.GET_AUTOCOMPLETE,
-        newList
+        type: weatherTypes.FETCH_AUTOCOMPLETE_SUCCESS,
+        autoCompleteList
     };
 };
-
-export const addFav = (cityKey) => {
-    return {
-        type: weatherTypes.ADD_FAVORITE,
-        cityKey
-    };
+export const autoCompleteStart = () => {
+    return { type: weatherTypes.FETCH_AUTOCOMPLETE_START, };
+};
+export const autoCompleteFailed = (error) => {
+    return { type: weatherTypes.FETCH_AUTOCOMPLETE_START, error };
 };
 
-export const removeFav = (cityKey) => {
+export const fetchWeather = (input) => {
     return {
-        type: weatherTypes.REMOVE_FAVORITE,
-        cityKey
+        type: weatherTypes.SET_INPUT,
+        input
     };
 };
 
 export const setInput = (input) => {
-    debugger
     return {
         type: weatherTypes.SET_INPUT,
         input

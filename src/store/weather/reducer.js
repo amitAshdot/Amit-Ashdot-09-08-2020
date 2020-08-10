@@ -11,15 +11,13 @@ const initialState = {
     ],
     fetchSearch: true,
     forecast: jsonForecast,
-    favCities: [215854,],
     userSearchInput: "",
     autoCompleteList: [],
-    loading: false
-
+    loading: false,
+    error: ""
 };
 
 const weatherReducer = (state = initialState, action) => {
-    let tempFavCities = 0
     switch (action.type) {
 
         case weatherTypes.SET_INPUT:
@@ -31,18 +29,17 @@ const weatherReducer = (state = initialState, action) => {
         case weatherTypes.SET_CITY_NAME:
             return { ...state, currentCityName: action.cityName }
 
-        case weatherTypes.GET_AUTOCOMPLETE:
-            return { ...state, autoCompleteList: action.newList }
+        case weatherTypes.FETCH_AUTOCOMPLETE_SUCCESS:
+            console.log(action.autoCompleteList)
+            return { ...state, loading: false, autoCompleteList: action.autoCompleteList }
+
+        case weatherTypes.FETCH_AUTOCOMPLETE_START:
+
+            return { ...state, loading: true }
 
 
-        case weatherTypes.ADD_FAVORITE:
-            tempFavCities = state.favCities
-            tempFavCities.push(action.cityKey)
-            return { ...state, favCities: tempFavCities }
-
-        case weatherTypes.REMOVE_FAVORITE:
-            tempFavCities = state.favCities.filter(city => city !== action.cityKey)
-            return { ...state, favCities: tempFavCities }
+        case weatherTypes.FETCH_AUTOCOMPLETE_FAIL:
+            return { ...state, loading: false, error: action.error }
 
         default:
             return { ...state };

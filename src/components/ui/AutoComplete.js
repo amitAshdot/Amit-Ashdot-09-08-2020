@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { countryToFlag } from '../../util/Autocomplete'
-import { setCityKey, setCityName } from '../../store/weather/actions'
+import { setCityKey, setCityName, getAutoComplete } from '../../store/weather/actions'
 import { Paper } from '@material-ui/core';
 
 const AutoComplete = () => {
@@ -9,7 +9,6 @@ const AutoComplete = () => {
     const dispatch = useDispatch();
 
     const handleClick = (chose) => {
-
         dispatch(setCityKey(Number(chose.Key)))
         dispatch(setCityName(chose.LocalizedName))
     }
@@ -23,7 +22,6 @@ const AutoComplete = () => {
             </div>
         )
     })
-
     return (
         <div className="auto-complete">
             <Paper>
