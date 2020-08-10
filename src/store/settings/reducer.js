@@ -4,10 +4,23 @@ const initialState = {
     darkMode: true,
     screen: 'home',
     celsius: true,
+
+    colorsMap: {
+        primary: "#505867",
+        primaryLight: "#667083",
+        primaryDark: "#282c34",
+        secondaryLight: "#2998ff",
+        secondaryDark: "#5643fa",
+
+        darkModePrimary: "#505867",
+        darkModePrimaryLight: "#667083",
+        darkModePrimaryDark: "#282c34",
+        darkModeSecondaryLight: "#2998ff",
+        darkModeSecondaryDark: "#5643fa",
+    }
 };
 
 const settingsReducer = (state = initialState, action) => {
-    let tempFavCities = 0
     switch (action.type) {
         case settingsTypes.TOGGLE_LIGHT:
             return { ...state, darkMode: action.darkMode }

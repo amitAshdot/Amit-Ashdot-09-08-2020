@@ -8,11 +8,11 @@
   max-height: 9rem;
   position: relative;
   background-attachment: fixed;
-  background-image: linear-gradient(
-    to right bottom,
-    $color-primary-light,
-    $color-primary-dark
-  );
+  // background-image: linear-gradient(
+  //   to right bottom,
+  //   $color-primary-light,
+  //   $color-primary-dark
+  // );
   text-transform: uppercase;
 
   &__nav {
@@ -25,7 +25,7 @@
       &--li {
         min-width: 10rem;
         a {
-          color: rgba($color-grey-light-1, 0.5);
+          // color: rgba($color-grey-light-1, 0.5);
           padding: 1rem;
           cursor: pointer;
           position: relative;
@@ -79,10 +79,8 @@
 
 .mode {
   transition: all 1s;
-  &__light {
-    box-shadow: inset 0 0 1rem $color-black;
-  }
-  &__dark {
+  box-shadow: inset 0 0 1rem $color-black;
+  &--dark {
     box-shadow: 0 0 1rem $color-secondary-light;
   }
 }

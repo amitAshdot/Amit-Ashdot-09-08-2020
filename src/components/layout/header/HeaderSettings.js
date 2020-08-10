@@ -6,7 +6,7 @@ const HeaderSettings = () => {
     const settings = useSelector(state => state.settingsReducer);
     const dispatch = useDispatch();
 
-    const modeClass = settings.darkMode ? "dark" : "light"
+    const modeClass = settings.darkMode ? "--dark" : ""
     const toggleDarkMode = () => {
         settings.darkMode ? dispatch(setLightMode(false)) :
             dispatch(setLightMode(true))
@@ -21,7 +21,7 @@ const HeaderSettings = () => {
     const activeFahrenheit = !settings.celsius ? "--active" : ''
 
     return (
-        <div className={`header__settings mode__${modeClass}`} >
+        <div className={`header__settings mode${modeClass}`} >
             <div className="header__settings__type" onClick={toggleCelsiusMode}>
                 <h3 className={`header__settings__type${activeCelsius}`}>&deg;C</h3>
                 <h3 className={`header__settings__type${activeFahrenheit}`}>&deg;F</h3>

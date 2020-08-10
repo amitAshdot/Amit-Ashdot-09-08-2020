@@ -6,7 +6,7 @@ const FavIcon = (props) => {
 
     return (
         <IconButton aria-label="add to favorites" color="secondary" onClick={props.clicked} >
-            <FavoriteIcon style={{ fontSize: '4rem' }} />
+            <FavoriteIcon style={{ fontSize: '4rem', animation: 'pulse 1s' }} />
         </IconButton>
 
     )

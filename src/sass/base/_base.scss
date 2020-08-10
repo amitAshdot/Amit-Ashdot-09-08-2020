@@ -40,6 +40,9 @@ body {
   }
 }
 
+.App {
+  height: 100vh;
+}
 ::selection {
   background-color: $color-primary-light;
   color: $color-white;

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const CurrentCityForecastItem = (props) => {
-    const { i, weekday, minTemp, maxTemp } = props
+    const { i, weekday, minTemp } = props
     return (
         <div className="favorite__box" key={i}>
             <div className="favorite__box__day">

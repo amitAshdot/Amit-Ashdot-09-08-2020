@@ -7,10 +7,11 @@ const FavPage = () => {
     const dispatch = useDispatch();
 
     const { favCities } = weather;
-    // const map = favCities.map((item, i) => {
-    //     const weekday = checkDay(i)
-    //     return <CurrentCityForecastItem weekday={weekday} minTemp={item.Temperature.Minimum.Value} maxTemp={item.Temperature.Maximum.Value} key={i} />
-    // })
+    const map = favCities.map((item, i) => {
+        const weekday = checkDay(i)
+        // debugger
+        // return <CurrentCityForecastItem weekday={weekday} minTemp={item.Temperature.Minimum.Value} key={i} />
+    })
     return (
         <div className="favorite">
             {/* {map} */}

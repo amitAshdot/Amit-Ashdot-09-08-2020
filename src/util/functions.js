@@ -19,6 +19,7 @@ export const checkIfDay = () => {
 };
 
 export const calcFahrenheit = (celsius) => {
+
     return (celsius * (9 / 5) + 32).toFixed(1)
 };
 

@@ -10,6 +10,7 @@
   height: 55vh;
   min-height: 40rem;
   padding: 0rem 2rem 2rem;
+  outline-style: auto;
 
   &__header {
     display: flex;
@@ -20,6 +21,7 @@
 
     &__left {
       display: flex;
+      position: relative;
       &--image {
         max-height: 4.5rem;
       }
@@ -29,6 +31,10 @@
       &--temperature {
         font-size: 2rem;
       }
+    }
+
+    &__right {
+      animation: pulse 1s;
     }
   }
   &__condition {
