@@ -23,7 +23,10 @@ export const calcFahrenheit = (celsius) => {
 
     return (celsius * (9 / 5) + 32).toFixed(1)
 };
-
+export const getIconUrl = icon => {
+    return icon >= 10 ? `https://developer.accuweather.com/sites/default/files/${icon}-s.png`
+        : `https://developer.accuweather.com/sites/default/files/0${icon}-s.png`
+}
 
 
 // export const getModeStyleClass = (darkMode) => {

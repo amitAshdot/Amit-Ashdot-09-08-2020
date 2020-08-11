@@ -1,0 +1,32 @@
+.favorite {
+  display: flex;
+  justify-content: center;
+  max-width: 120rem;
+  margin: 10rem auto;
+  flex-wrap: wrap;
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2rem 2rem;
+    margin: 1rem 2rem;
+    width: 15%;
+    height: 20rem;
+    align-items: center;
+
+    box-shadow: 0rem 0.4rem 1rem 0rem rgba($color-black, 0.5);
+    border: 1px solid;
+
+    &__city-name {
+      font-size: 1.6rem;
+    }
+
+    &__temp {
+      font-size: 1.5rem;
+    }
+    @include respond(phone) {
+      width: 40%;
+    }
+  }
+}

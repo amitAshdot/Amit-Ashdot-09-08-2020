@@ -55,7 +55,6 @@ export const addFav = (favList, cityKey, cityName) => {
 };
 
 export const removeFav = (favList, cityKey) => {
-    debugger
     let tempArr = [...favList];
     tempArr = tempArr.filter(city => city.cityKey !== cityKey)
     localStorage.setItem("favList", tempArr);

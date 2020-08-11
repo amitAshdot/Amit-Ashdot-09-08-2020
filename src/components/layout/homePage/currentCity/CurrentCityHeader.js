@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addFav, removeFav } from '../../../../store/favorite/actions';
 import FavIconEmpty from '../../../ui/icons/FavIconEmpty';
 import { calcFahrenheit } from '../../../../util/functions';
-
+import { getIconUrl } from '../../../../util/functions'
 const CurrentCityHeader = () => {
     const weatherState = useSelector(state => state.weatherReducer);
     const settings = useSelector(state => state.settingsReducer);
@@ -13,7 +13,6 @@ const CurrentCityHeader = () => {
     const { favCitiesKey } = favorite;
     const dispatch = useDispatch();
     const city = searchArr[0]
-    const iconeUrl = weatherIcon >= 10 ? `https://developer.accuweather.com/sites/default/files/${weatherIcon}-s.png` : `https://developer.accuweather.com/sites/default/files/0${weatherIcon}-s.png`
 
     let isFav = favCitiesKey.some(city => city.cityKey === currentCityKey)
 
@@ -31,7 +30,7 @@ const CurrentCityHeader = () => {
         <div className="current-city__header">
             <div className="current-city__header__left">
                 <div className="current-city__header__left--image">
-                    <img src={iconeUrl} alt="weather condition" />
+                    <img src={getIconUrl(weatherIcon)} alt="weather condition" />
                 </div>
                 <div className="current-city__header__left--info">
                     <p className="current-city__header__left--name">{weatherState.currentCityName}</p>

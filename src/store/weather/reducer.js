@@ -50,7 +50,6 @@ const weatherReducer = (state = initialState, action) => {
             return { ...state, userSearchInput: "", autoCompleteList: [] }
 
         case weatherTypes.FETCH_GEO_LOCATION_SUCCESS:
-            debugger
             return { ...state, loading: false, currentCityName: action.cityName, currentCityKey: action.cityKey }
 
 

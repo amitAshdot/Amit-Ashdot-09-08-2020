@@ -42,11 +42,9 @@ function App() {
   }, [])
 
   const getCooridors = (position) => {
-
-    let latitude = 31.2726146
-    let longitude = 34.8072057
     debugger
-    dispatch(geoApi(latitude, longitude))
+
+    dispatch(geoApi(position.coords.latitude, position.coords.longitude))
   }
   return (
     <Router>

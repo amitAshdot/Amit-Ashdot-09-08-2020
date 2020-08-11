@@ -1,7 +1,6 @@
 import React from 'react'
 
 const NoFavorites = () => {
-    debugger
     return (
         <div className="noFav">
             <div className="noFav__text">

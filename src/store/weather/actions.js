@@ -104,7 +104,6 @@ export const clearAutoComplete = () => {
 
 // Geo location
 export const fetchGeoSuccess = (data) => {
-    debugger
     let cityName = data.EnglishName, cityKey = data.Key
     return {
         type: weatherTypes.FETCH_GEO_LOCATION_SUCCESS,

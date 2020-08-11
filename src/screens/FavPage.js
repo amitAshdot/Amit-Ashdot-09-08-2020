@@ -18,7 +18,7 @@ const FavPage = () => {
     }, [favorite.favList])
     const { favCities } = favorite;
     const map = favList.length > 0 && !favCities.loading ? favCities.map((item, i) => {
-        return <FavCityItem cityName={item.cityName} weatherText={item.WeatherText} minTemp={item.Temperature.Metric.Value} isDatTime={item.IsDayTime} key={i} />
+        return <FavCityItem cityName={item.cityName} weatherText={item.WeatherText} minTemp={item.Temperature.Metric.Value} isDatTime={item.IsDayTime} icon={item.WeatherIcon} key={i} />
     }) : <NoFavorites />
 
 
