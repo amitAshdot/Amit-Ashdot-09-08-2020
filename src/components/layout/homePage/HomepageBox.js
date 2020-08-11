@@ -21,7 +21,7 @@ const HomepageBox = () => {
         <div className="current-city" style={style}>
             <CurrentCityHeader />
             <p className="current-city__condition">{weatherText}</p>
-            <CurrentCityForeast />
+            <CurrentCityForeast isDay={isDay} />
 
         </div>
     )

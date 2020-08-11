@@ -1,0 +1,35 @@
+.mode {
+  &--dark--header {
+    background-image: linear-gradient(
+      to right bottom,
+      $color-primary-light,
+      $color-primary-dark
+    );
+  }
+
+  &--dark--settings {
+    box-shadow: 0 0 1rem $color-secondary-light;
+    // background: $color-grey-dark-4;
+    background-image: linear-gradient(
+      to right bottom,
+      $color-grey-dark,
+      #282c34
+    );
+
+    &-type {
+      display: flex;
+      color: $color-primary-light;
+      // background-image: linear-gradient(to right bottom, #667083, #282c34);
+      box-shadow: none;
+
+      &--active {
+        margin: 0.5rem;
+        color: $color-grey-light-1;
+      }
+    }
+  }
+
+  &--dark--nav {
+    color: $color-grey-light-2;
+  }
+}

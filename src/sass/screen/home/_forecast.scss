@@ -27,11 +27,19 @@
       font-size: 2rem;
       font-weight: 800;
 
+      &-max {
+        font-size: 2rem;
+        font-weight: 800;
+      }
       @include respond(phone) {
         align-self: center;
       }
     }
 
+    &__image {
+      height: 90%;
+      padding-top: 5%;
+    }
     &:hover {
       box-shadow: 0.3rem 0.6rem 1.3rem 0.1rem rgba($color-black, 0.5);
       transform: scale(1.03);
@@ -39,14 +47,14 @@
 
     @include respond(phone) {
       width: 90%;
-      height: 10%;
+      height: 15%;
       flex-direction: row;
       justify-content: space-around;
     }
   }
 
   @include respond(phone) {
-    flex-direction: column;
+    flex-direction: column-reverse;
     height: 100%;
   }
 }

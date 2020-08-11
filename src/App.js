@@ -12,6 +12,7 @@ import { Paper } from '@material-ui/core';
 import Loader from './components/ui/Loader';
 import { initFav } from './store/favorite/actions';
 import { geoApi } from './store/weather/actions';
+import PageNotFound from './screens/PageNotFound';
 
 function App() {
   const settings = useSelector(state => state.settingsReducer);
@@ -56,7 +57,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route exact path="/favorites" component={FavPage} />
-              <Route render={() => <h1>404: page not found</h1>} />
+              <Route component={PageNotFound} />
             </Switch>
           </div>
         </Paper>

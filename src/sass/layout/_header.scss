@@ -6,13 +6,12 @@
   height: 10vh;
   min-height: 4rem;
   max-height: 9rem;
-  position: relative;
   background-attachment: fixed;
-  // background-image: linear-gradient(
-  //   to right bottom,
-  //   $color-primary-light,
-  //   $color-primary-dark
-  // );
+  background-image: linear-gradient(
+    to right bottom,
+    $color-secondary-light,
+    $color-secondary-dark
+  );
   text-transform: uppercase;
 
   &__nav {
@@ -22,17 +21,34 @@
       justify-content: space-around;
       list-style: none;
 
-      &--li {
+      &__li {
         min-width: 10rem;
-        a {
-          // color: rgba($color-grey-light-1, 0.5);
+        text-align: center;
+
+        &-a {
+          color: $color-grey-light-1;
           padding: 1rem;
+          font-size: 1.6rem;
           cursor: pointer;
           position: relative;
           text-decoration: none;
 
           transition: all 0.3s;
           &:hover {
+            background: rgba($color-grey-dark-4, 0.5);
+          }
+          &--dark {
+            color: $color-secondary-light;
+            font-size: 1.6rem;
+            padding: 1rem;
+            cursor: pointer;
+            position: relative;
+            text-decoration: none;
+
+            transition: all 0.3s;
+            &:hover {
+              background: rgba($color-secondary-light, 0.5);
+            }
           }
         }
       }
@@ -48,8 +64,10 @@
 
   &__settings {
     display: flex;
-    border: 1px solid $color-secondary-light;
+    border: 1px solid $color-grey-light-2;
+    background-image: linear-gradient(to right bottom, #667083, #282c34);
     padding: 0.5rem 3rem;
+    box-shadow: inset 0 0 1rem $color-black;
 
     &__type {
       display: flex;
@@ -60,27 +78,25 @@
 
       &--active {
         margin: 0.5rem;
-        color: $color-secondary-light;
+        color: $color-primary-blue;
       }
     }
 
-    &__dark-mode {
-      color: $color-secondary-light;
+    @include respond(tab-land) {
+      position: absolute;
+      top: 11vh;
     }
   }
 
   &__logo {
     font-size: 3rem;
+    color: $color-grey-light-2;
+    @include respond(tab-land) {
+      font-size: 2rem;
+    }
   }
 
   @include respond(tab-land) {
-  }
-}
-
-.mode {
-  transition: all 1s;
-  box-shadow: inset 0 0 1rem $color-black;
-  &--dark {
-    box-shadow: 0 0 1rem $color-secondary-light;
+    padding: 0rem 1.5rem;
   }
 }

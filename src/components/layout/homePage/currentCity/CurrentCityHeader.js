@@ -35,7 +35,7 @@ const CurrentCityHeader = () => {
                 </div>
                 <div className="current-city__header__left--info">
                     <p className="current-city__header__left--name">{weatherState.currentCityName}</p>
-                    <p className="current-city__header__left--temperature">{currentTemp} </p>
+                    <p className="current-city__header__left--temperature">{currentTemp}&deg; </p>
                 </div>
 
             </div>

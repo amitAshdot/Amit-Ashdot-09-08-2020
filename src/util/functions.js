@@ -24,3 +24,8 @@ export const calcFahrenheit = (celsius) => {
     return (celsius * (9 / 5) + 32).toFixed(1)
 };
 
+
+// export const getModeStyleClass = (darkMode) => {
+//     darkMode ? "--dark" : ""
+//     return (celsius * (9 / 5) + 32).toFixed(1)
+// };

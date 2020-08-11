@@ -1,37 +1,12 @@
-@mixin clearFix {
-  &::after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-
 @mixin absltCenter {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-@mixin featuresArrow {
-  color: $color-white;
-  position: absolute;
-  right: -4.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 3rem;
+@mixin mode-dark__settings {
 }
 
-@mixin typingStyle {
-  width: 0;
-  color: #fff;
-  font-family: monospace;
-  overflow: hidden;
-  border-right: 0.15rem solid $color-primary-purple;
-  white-space: nowrap;
-  margin: 0 auto;
-  letter-spacing: 0.15em;
-}
 //Media query manager
 /*
 0-600px : phone

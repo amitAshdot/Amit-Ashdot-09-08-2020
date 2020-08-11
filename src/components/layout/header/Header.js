@@ -2,16 +2,19 @@ import React from 'react'
 import HeaderNav from './HeaderNav';
 import HeaderSettings from './HeaderSettings';
 import { Paper } from '@material-ui/core';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
+    const settings = useSelector(state => state.settingsReducer);
+
+    const modeClass = settings.darkMode ? "mode--dark--header" : ""
+
     return (
-        <Paper>
-            <div className="header">
-                <p className="header__logo">Weather-app</p>
-                <HeaderSettings />
-                <HeaderNav />
-            </div>
-        </Paper>
+        <div className={`header ${modeClass}`}>
+            <p className="header__logo">Weather-app</p>
+            <HeaderSettings />
+            <HeaderNav />
+        </div>
     )
 }
 

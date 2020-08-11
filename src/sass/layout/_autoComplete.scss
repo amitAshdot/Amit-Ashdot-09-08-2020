@@ -1,12 +1,10 @@
 .auto-complete {
   position: absolute;
   top: 20rem;
-  // outline-style: auto;
   box-shadow: 0rem 0.4rem 1rem 0rem rgba($color-black, 0.5);
   z-index: 5;
   &__box {
     display: flex;
-    // background: $color-grey-light-2;
     padding: 0 1rem;
     font-size: 1.6rem;
 
@@ -14,7 +12,6 @@
       background: $color-grey-dark-2;
     }
     &--p {
-      // color: $color-black;
       margin-left: 1.5rem;
       align-self: center;
     }
