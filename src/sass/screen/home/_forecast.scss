@@ -9,17 +9,15 @@
     display: flex;
     flex-direction: column;
     align-self: center;
-    border: 1px solid;
     height: 100%;
     justify-content: center;
-    box-shadow: 0rem 0.4rem 1rem 0rem rgba($color-black, 0.5);
 
     transition: all 0.4s;
     &__day {
-      font-size: 1.6rem;
+      font-size: 2.5rem;
 
       @include respond(phone) {
-        font-size: 2.5rem;
+        font-size: 2rem;
         align-self: center;
       }
     }
@@ -41,8 +39,9 @@
       padding-top: 5%;
     }
     &:hover {
-      box-shadow: 0.3rem 0.6rem 1.3rem 0.1rem rgba($color-black, 0.5);
       transform: scale(1.03);
+      border: 1px solid;
+      box-shadow: 0rem 0.4rem 1rem 0rem rgba($color-black, 0.5);
     }
 
     @include respond(phone) {
@@ -50,6 +49,8 @@
       height: 15%;
       flex-direction: row;
       justify-content: space-around;
+      border: none;
+      box-shadow: none;
     }
   }
 
