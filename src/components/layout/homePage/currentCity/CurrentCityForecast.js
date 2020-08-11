@@ -10,7 +10,7 @@ const CurrentCityForeast = (props) => {
         const weekday = checkDay(i)
         const minTemp = settings.celsius ? item.Temperature.Minimum.Value : calcFahrenheit(item.Temperature.Minimum.Value)
         const maxTemp = settings.celsius ? item.Temperature.Maximum.Value : calcFahrenheit(item.Temperature.Maximum.Value)
-        return <CurrentCityForecastItem weekday={weekday} minTemp={minTemp} maxTemp={maxTemp} key={i} icon={item.Day.Icon} isDay={props} />
+        return <CurrentCityForecastItem weekday={weekday} minTemp={minTemp} maxTemp={maxTemp} key={i} icon={item.Day.Icon} isDay={props.isDay} />
     }).reverse()
 
     return (
