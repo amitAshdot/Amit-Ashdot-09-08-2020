@@ -10,6 +10,7 @@ const SearchInput = (props) => {
                 onChange={props.handleChange}
                 multiline
                 variant="outlined"
+                value={props.value}
             />
 
 

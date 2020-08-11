@@ -9,24 +9,24 @@ const CurrentCityHeader = () => {
     const weatherState = useSelector(state => state.weatherReducer);
     const settings = useSelector(state => state.settingsReducer);
     const favorite = useSelector(state => state.favoriteReducer);
-    const { weatherIcon, currentCityKey, searchArr } = weatherState;
-    const { favCities } = favorite;
+    const { weatherIcon, currentCityKey, searchArr, currentCityName } = weatherState;
+    const { favCitiesKey } = favorite;
     const dispatch = useDispatch();
     const city = searchArr[0]
-    const iconeUrl = `https://developer.accuweather.com/sites/default/files/${weatherIcon}-s.png`
+    const iconeUrl = weatherIcon >= 10 ? `https://developer.accuweather.com/sites/default/files/${weatherIcon}-s.png` : `https://developer.accuweather.com/sites/default/files/0${weatherIcon}-s.png`
 
-    let isFav = favCities ? favCities.includes(currentCityKey) : null
+    let isFav = favCitiesKey.some(city => city.cityKey === currentCityKey)
 
     const handleClick = () => {
-        isFav ? dispatch(removeFav(favorite.favCities, weatherState.currentCityKey)) :
-            dispatch(addFav(favorite.favCities, weatherState.currentCityKey))
+        isFav ? dispatch(removeFav(favorite.favCitiesKey, weatherState.currentCityKey)) :
+            dispatch(addFav(favorite.favCitiesKey, currentCityKey, currentCityName))
     }
 
     const favIcon = (
         isFav ? < FavIcon clicked={handleClick} /> : <FavIconEmpty clicked={handleClick} />
     )
 
-    const currentTemp = settings.celsius ? city.Temperature.Metric.Value : calcFahrenheit(city.Temperature.Metric.Value)
+    const currentTemp = settings.celsius ? city.Temperature.Metric.Value : city.Temperature.Imperial.Value
     return (
         <div className="current-city__header">
             <div className="current-city__header__left">

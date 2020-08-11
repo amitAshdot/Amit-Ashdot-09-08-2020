@@ -1,5 +1,6 @@
 import React, { useMemo, useEffect } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import HomePage from './screens/HomePage';
 import Header from './components/layout/header/Header';
@@ -10,6 +11,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { Paper } from '@material-ui/core';
 import Loader from './components/ui/Loader';
 import { initFav } from './store/favorite/actions';
+import { geoApi } from './store/weather/actions';
 
 function App() {
   const settings = useSelector(state => state.settingsReducer);
@@ -30,18 +32,39 @@ function App() {
   );
 
   useEffect(() => {
+    let test = ''
+    if (navigator.geolocation) {
+      test = navigator.geolocation.getCurrentPosition(getCooridors);
+    } else {
+    }
     dispatch(initFav)
   }, [])
+
+  const getCooridors = (position) => {
+
+    let latitude = 31.2726146
+    let longitude = 34.8072057
+    debugger
+    dispatch(geoApi(latitude, longitude))
+  }
   return (
-    <ThemeProvider theme={theme}>
-      <Paper>
-        <div className="App">
-          <Header />
-          <HomePage />
-          {!favorite.favCities ? <FavPage /> : null}
-        </div>
-      </Paper>
-    </ThemeProvider>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <Paper>
+          <div className="App">
+            <Header />
+            <Switch>
+              <Route exact path="/" component={HomePage} />
+              <Route exact path="/favorites" component={FavPage} />
+              <Route render={() => <h1>404: page not found</h1>} />
+            </Switch>
+          </div>
+        </Paper>
+      </ThemeProvider>
+    </Router>
+
+
+
 
   );
 }

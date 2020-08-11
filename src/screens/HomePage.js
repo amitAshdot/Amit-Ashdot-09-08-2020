@@ -9,7 +9,7 @@ const HomePage = () => {
     const weatherState = useSelector(state => state.weatherReducer);
     const dispatch = useDispatch();
     const hasAutoComplete = weatherState.userSearchInput ? <AutoComplete /> : null
-    const { userSearchInput } = weatherState
+    const { userSearchInput, currentCityKey } = weatherState
     useEffect(() => {
         if (userSearchInput !== ' ' && userSearchInput.length !== 0) {
             const timer = setTimeout(() => {
@@ -20,23 +20,22 @@ const HomePage = () => {
             };
         }
     }, [userSearchInput]);
-    // useEffect(() => {
-    //     dispatch(getAutoComplete(weatherState.userSearchInput))
-    // }, [weatherState.userSearchInput])
 
     const handleChange = (event) => {
         event.preventDefault();
         dispatch(setInput(event.target.value))
     }
+    const homeBox = currentCityKey ? <HomepageBox /> : <h1>please serach</h1>
     return (
         <main className="main">
             <SearchInput handleChange={handleChange}
                 class="homepage"
                 label="Search"
                 placeholder={"ex. Tel Aviv"}
+                value={userSearchInput}
             />
             {hasAutoComplete}
-            <HomepageBox />
+            {homeBox}
 
         </main>
     )
