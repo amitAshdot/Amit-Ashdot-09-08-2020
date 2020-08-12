@@ -10,8 +10,8 @@
 //Media query manager
 /*
 0-600px : phone
-600-900px: tablet portarit
-900-1200px: tablet landscape
+600-800px: tablet portarit
+800-1200px: tablet landscape
 [1200-1800px]: main style
 1800px + : big desktop
 
@@ -26,6 +26,12 @@ ORDER: Base + typographyy > general layout + grid > page layout > components
 1em =16px
 */
 @mixin respond($breakpoint) {
+  // @if $breakpoint==phone-port {
+  //   @media only screen and (max-width: 25em) {
+  //     // 400px
+  //     @content;
+  //   }
+  // }
   @if $breakpoint==phone {
     @media only screen and (max-width: 37.5em) {
       // 600px
@@ -35,7 +41,7 @@ ORDER: Base + typographyy > general layout + grid > page layout > components
 
   @if $breakpoint==tab-port {
     @media only screen and (max-width: 56.25em) {
-      // 900px
+      // 800px
       @content;
     }
   }

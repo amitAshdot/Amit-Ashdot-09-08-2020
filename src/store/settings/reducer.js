@@ -4,7 +4,7 @@ const initialState = {
     darkMode: true,
     screen: 'home',
     celsius: true,
-
+    path: '',
     colorsMap: {
         primary: "#505867",
         primaryLight: "#667083",
@@ -27,8 +27,6 @@ const settingsReducer = (state = initialState, action) => {
 
         case settingsTypes.TOGGLE_CELSIUS:
             return { ...state, celsius: action.celsiusMode }
-
-
         default:
             return { ...state };
     }

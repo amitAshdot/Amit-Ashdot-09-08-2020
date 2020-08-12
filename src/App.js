@@ -42,8 +42,6 @@ function App() {
   }, [])
 
   const getCooridors = (position) => {
-    debugger
-
     dispatch(geoApi(position.coords.latitude, position.coords.longitude))
   }
   return (

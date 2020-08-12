@@ -8,17 +8,27 @@
   @include respond(tab-port) {
     margin-top: 1rem;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
   }
 
   @include respond(phone) {
-    margin-top: 5rem;
+    margin-top: 0rem;
     flex-direction: column;
   }
+  // @include respond(phone) {
+  //   margin-top: 5rem;
+  //   flex-direction: column;
+  // }
 }
 
 .homepage {
   &__input {
     margin: 5rem;
+    position: relative;
+
+    @include respond(phone) {
+      margin: 2rem;
+      align-self: flex-start;
+    }
   }
 }

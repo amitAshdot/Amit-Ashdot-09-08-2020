@@ -2,7 +2,6 @@ import React from 'react'
 import DarkModeIcon from '../../ui/icons/DarkModeIcon';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLightMode, setCelsiusMode } from '../../../store/settings/actions'
-import { Paper } from '@material-ui/core';
 const HeaderSettings = () => {
     const settings = useSelector(state => state.settingsReducer);
     const dispatch = useDispatch();

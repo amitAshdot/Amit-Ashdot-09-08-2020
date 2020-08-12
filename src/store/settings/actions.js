@@ -15,3 +15,4 @@ export const setCelsiusMode = (celsiusMode) => {
         celsiusMode
     };
 };
+

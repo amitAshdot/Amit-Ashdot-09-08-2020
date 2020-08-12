@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0rem 5rem;
-  height: 10vh;
+  height: 8vh;
   min-height: 4rem;
   max-height: 9rem;
   background-attachment: fixed;
@@ -15,6 +15,8 @@
   text-transform: uppercase;
 
   &__nav {
+    height: 100%;
+
     &__ul {
       height: 100%;
       display: flex;
@@ -24,10 +26,14 @@
       &__li {
         min-width: 10rem;
         text-align: center;
+        justify-content: center;
+        height: 100%;
+        display: inline-flex;
 
         &-a {
           color: $color-grey-light-1;
-          padding: 1rem;
+          padding: 0 2rem;
+          line-height: 8vh;
           font-size: 1.6rem;
           cursor: pointer;
           position: relative;
@@ -54,7 +60,7 @@
       }
     }
     @include respond(tab-land) {
-      padding: 5rem 0rem;
+      padding: 0rem 0rem;
     }
 
     @include respond(tab-port) {
@@ -84,7 +90,14 @@
 
     @include respond(tab-land) {
       position: absolute;
-      top: 11vh;
+      top: 10vh;
+      right: 81%;
+    }
+    @include respond(phone) {
+      position: absolute;
+
+      top: 10.5vh;
+      right: 2rem;
     }
   }
 

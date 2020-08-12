@@ -1,7 +1,6 @@
 import React from 'react'
 import HeaderNav from './HeaderNav';
 import HeaderSettings from './HeaderSettings';
-import { Paper } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 
 const Header = () => {
