@@ -44,6 +44,7 @@ const weatherReducer = (state = initialState, action) => {
 
         case weatherTypes.FETCH_AUTOCOMPLETE_SUCCESS:
             return { ...state, loading: false, autoCompleteList: action.autoCompleteList }
+
         case weatherTypes.CLEAR_AUTOCOMPLETE:
             return { ...state, userSearchInput: "", autoCompleteList: [] }
 

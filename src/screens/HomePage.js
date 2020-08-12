@@ -12,9 +12,6 @@ const HomePage = () => {
     const dispatch = useDispatch();
     const { userSearchInput, loading, error } = weatherState;
 
-    useEffect(() => {
-
-    }, [])
     const handleChange = (event) => {
         event.preventDefault();
         dispatch(setInput(event.target.value))

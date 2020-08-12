@@ -49,7 +49,6 @@ export const setCity = (cityKey, cityName) => {
 }
 export const getAutoComplete = (autoCompleteText) => {
     return async dispatch => {
-        // dispatch(fetchStart())
         try {
             const res = await axios.get(`${url}/locations/v1/cities/autocomplete?apikey=${key}&q=${autoCompleteText}`);
             await dispatch(autoCompleteSuccess(res.data))
@@ -58,6 +57,13 @@ export const getAutoComplete = (autoCompleteText) => {
         }
     }
 }
+
+export const fetchStart = () => {
+    return { type: weatherTypes.FETCH_START, };
+};
+export const fetchFailed = (error) => {
+    return { type: weatherTypes.FETCH_FAIL, error };
+};
 
 export const fetchWeather = (cityKey) => {
     return async dispatch => {
@@ -90,20 +96,6 @@ export const forecastSuccess = (forecast) => {
     };
 };
 
-export const autoCompleteSuccess = (autoCompleteList) => {
-    return {
-        type: weatherTypes.FETCH_AUTOCOMPLETE_SUCCESS,
-        autoCompleteList
-    };
-};
-export const fetchStart = () => {
-    return { type: weatherTypes.FETCH_START, };
-};
-export const fetchFailed = (error) => {
-    return { type: weatherTypes.FETCH_FAIL, error };
-};
-
-
 export const fetchWeatherSuccess = (weather) => {
     return {
         type: weatherTypes.FETCH_WEATHER_SUCCESS,
@@ -111,6 +103,13 @@ export const fetchWeatherSuccess = (weather) => {
     };
 };
 
+
+export const autoCompleteSuccess = (autoCompleteList) => {
+    return {
+        type: weatherTypes.FETCH_AUTOCOMPLETE_SUCCESS,
+        autoCompleteList
+    };
+};
 export const clearAutoComplete = () => {
     return {
         type: weatherTypes.CLEAR_AUTOCOMPLETE,
