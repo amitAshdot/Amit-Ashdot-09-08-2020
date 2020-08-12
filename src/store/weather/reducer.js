@@ -8,9 +8,7 @@ const initialState = {
     currentCityName: "",
     weatherIcon: 21,
     weatherText: "",
-    searchArr: [
-        jsonCurrent
-    ],
+    searchArr: [jsonCurrent],
     fetchSearch: true,
     forecast: jsonForecast,
     userSearchInput: "",
@@ -52,7 +50,8 @@ const weatherReducer = (state = initialState, action) => {
         case weatherTypes.FETCH_GEO_LOCATION_SUCCESS:
             return { ...state, loading: false, currentCityName: action.cityName, currentCityKey: action.cityKey }
 
-
+        case weatherTypes.SET_ERROR:
+            return { ...state, error: action.error }
         default:
             return { ...state };
     }

@@ -5,18 +5,12 @@ import { url } from '../../util/api'
 
 export const fetchFavorite = (favList) => {
     return async dispatch => {
-
-        // const faveArr = favList.split(',');
         dispatch(fetchStart())
         try {
             const promises = favList.map((key, i) => {
-
-                console.log(key.cityKey)
                 return axios.get(`${url}/currentconditions/v1/${key.cityKey}?apikey=469JvPBAURNrUJpoUy7bnbjJXn4uvab5`)
             });
-            const f = 'ff'
             await Promise.all(promises).then((res) => {
-
                 dispatch(fetchSuccess(res, favList))
             });
         } catch (error) {

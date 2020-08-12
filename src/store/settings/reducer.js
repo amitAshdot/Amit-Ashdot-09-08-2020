@@ -4,20 +4,7 @@ const initialState = {
     darkMode: true,
     screen: 'home',
     celsius: true,
-    path: '',
-    colorsMap: {
-        primary: "#505867",
-        primaryLight: "#667083",
-        primaryDark: "#282c34",
-        secondaryLight: "#2998ff",
-        secondaryDark: "#5643fa",
-
-        darkModePrimary: "#505867",
-        darkModePrimaryLight: "#667083",
-        darkModePrimaryDark: "#282c34",
-        darkModeSecondaryLight: "#2998ff",
-        darkModeSecondaryDark: "#5643fa",
-    }
+    error: ''
 };
 
 const settingsReducer = (state = initialState, action) => {

@@ -5,7 +5,6 @@ const Loader = () => {
     return (
         <div>
             <CircularProgress style={{ color: '#2998ff' }} />
-
         </div>
     )
 }

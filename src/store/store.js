@@ -10,7 +10,6 @@ const rootReducer = combineReducers({
     weatherReducer: weatherReducer,
     settingsReducer: settingsReducer,
     favoriteReducer: favoriteReducer,
-
 });
 
 export const store = createStore(

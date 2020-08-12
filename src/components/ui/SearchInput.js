@@ -5,9 +5,7 @@ import { useSelector } from 'react-redux';
 
 const SearchInput = (props) => {
     const weatherState = useSelector(state => state.weatherReducer);
-
     const hasAutoComplete = weatherState.userSearchInput ? <AutoComplete /> : null
-
     return (
         <div className={`homepage__input`}>
             <TextField
@@ -15,13 +13,13 @@ const SearchInput = (props) => {
                 label="Search"
                 placeholder="ex. Tel-Aviv"
                 onChange={props.handleChange}
+                onKeyPress={props.onKeyPress}
                 multiline
                 variant="outlined"
                 value={props.value}
+                color="primary"
             />
             {hasAutoComplete}
-
-
         </div >
     )
 }

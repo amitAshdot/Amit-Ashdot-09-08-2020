@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux';
 
 import CurrentCityHeader from './currentCity/CurrentCityHeader';
 import CurrentCityForeast from './currentCity/CurrentCityForecast';
-import { checkIfDay } from '../../../util/functions';
 const HomepageBox = () => {
+    const weatherState = useSelector(state => state.weatherReducer);
     const currentCity = useSelector(state => state.weatherReducer);
-    const isDay = checkIfDay()
+    const isDay = weatherState.searchArr[0].IsDayTime
     const weatherText = currentCity.searchArr[0].WeatherText
     const style = isDay ?
         {

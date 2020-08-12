@@ -2,19 +2,19 @@ import React, { useEffect } from 'react'
 import SearchInput from '../components/ui/SearchInput';
 import HomepageBox from '../components/layout/homePage/HomepageBox';
 import { useSelector, useDispatch } from 'react-redux';
-import AutoComplete from '../components/ui/AutoComplete';
-import { setInput, getAutoComplete } from '../store/weather/actions'
+import { setInput, getAutoComplete, setError } from '../store/weather/actions'
 import Loader from '../components/ui/Loader';
+import { isInputEnglish } from '../util/functions';
 
 const HomePage = () => {
     const weatherState = useSelector(state => state.weatherReducer);
     const dispatch = useDispatch();
-    const { userSearchInput, currentCityKey, loading } = weatherState
+    const { userSearchInput, currentCityKey, loading, error } = weatherState
     useEffect(() => {
-        if (userSearchInput !== ' ' && userSearchInput.length !== 0) {
+        if (userSearchInput !== ' ' && userSearchInput.length) {
             const timer = setTimeout(() => {
                 dispatch(getAutoComplete(weatherState.userSearchInput))
-            }, 300);
+            }, 450);
             return () => {
                 clearTimeout(timer);
             };
@@ -25,18 +25,30 @@ const HomePage = () => {
         event.preventDefault();
         dispatch(setInput(event.target.value))
     }
-    const homeBox = currentCityKey ? <HomepageBox /> : loading ? <Loader /> : <h1>please serach</h1>
+
+    const handleKeyPress = (event) => {
+        var charCode = event.charCode;
+        if (!isInputEnglish(charCode)) {
+            event.preventDefault()
+            dispatch(setError("Please use english letters"))
+        }
+        else dispatch(setError(""))
+    }
+    const homeBox = currentCityKey ? <HomepageBox /> : loading ? <Loader /> : <h1>please search a city</h1>
     return (
         <main className="main">
-
-            <SearchInput handleChange={handleChange}
+            <div className="main__error">
+                {error ? error : null}
+            </div>
+            <SearchInput
+                handleChange={handleChange}
+                onKeyPress={handleKeyPress}
                 class="homepage"
                 label="Search"
                 placeholder={"ex. Tel Aviv"}
                 value={userSearchInput}
             />
             {homeBox}
-
         </main>
     )
 }

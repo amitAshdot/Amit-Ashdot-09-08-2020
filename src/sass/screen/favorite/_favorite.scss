@@ -14,9 +14,10 @@
     width: 15%;
     height: 20rem;
     align-items: center;
-
     box-shadow: 0rem 0.4rem 1rem 0rem rgba($color-black, 0.5);
     border: 1px solid;
+
+    animation: moveInTop 0.5s ease-in;
 
     &__city-name {
       font-size: 1.6rem;

@@ -4,6 +4,7 @@ const CurrentCityForecastItem = (props) => {
     const { i, weekday, minTemp, maxTemp, icon, isDay } = props
     const color = isDay ? '#f7f7f780' : "#9197fb80"
     const style = { color: color }
+
     return (
         <div className="forecast__box" key={i}>
             <div >

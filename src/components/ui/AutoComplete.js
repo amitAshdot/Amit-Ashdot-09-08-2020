@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { countryToFlag } from '../../util/Autocomplete'
-import { clearAutoComplete, setInput, fetchWeather, fetchForecast, setCity, } from '../../store/weather/actions'
+import { setChosenCity, } from '../../store/weather/actions'
 import { Paper } from '@material-ui/core';
 
 const AutoComplete = () => {
@@ -9,11 +9,7 @@ const AutoComplete = () => {
     const dispatch = useDispatch();
 
     const handleClick = (chose) => {
-        dispatch(setCity(chose.Key, chose.LocalizedName))
-        dispatch(fetchWeather(Number(chose.Key)))
-        dispatch(fetchForecast(Number(chose.Key)))
-        dispatch(setInput(chose.LocalizedName))
-        dispatch(clearAutoComplete())
+        dispatch(setChosenCity(chose.Key, chose.LocalizedName))
     }
     const listOfCountries = weatherState.autoCompleteList.map((item, i) => {
         return (

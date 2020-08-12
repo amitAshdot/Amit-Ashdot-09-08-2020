@@ -5,9 +5,7 @@ import { useSelector } from 'react-redux';
 
 const Header = () => {
     const settings = useSelector(state => state.settingsReducer);
-
     const modeClass = settings.darkMode ? "mode--dark--header" : ""
-
     return (
         <div className={`header ${modeClass}`}>
             <p className="header__logo">Weather-app</p>

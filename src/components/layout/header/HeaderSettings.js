@@ -12,12 +12,10 @@ const HeaderSettings = () => {
         settings.darkMode ? dispatch(setLightMode(false)) :
             dispatch(setLightMode(true))
     }
-
     const toggleCelsiusMode = () => {
         settings.celsius ? dispatch(setCelsiusMode(false)) :
             dispatch(setCelsiusMode(true))
     }
-
     const activeCelsius = settings.celsius ? "--active" : ''
     const activeFahrenheit = !settings.celsius ? "--active" : ''
 
