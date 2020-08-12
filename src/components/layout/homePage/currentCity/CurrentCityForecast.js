@@ -1,8 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
-import { checkDay } from '../../../../util/functions';
 import CurrentCityForecastItem from './CurrentCityForecastItem';
-import { getFixedTemperature } from '../../../../util/functions'
+import { getFixedTemperature, checkDay } from '../../../../util/helpers'
 const CurrentCityForeast = (props) => {
     const weather = useSelector(state => state.weatherReducer);
     const settings = useSelector(state => state.settingsReducer);

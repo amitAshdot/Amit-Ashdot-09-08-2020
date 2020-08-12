@@ -3,7 +3,7 @@ import FavIcon from '../../../ui/icons/FavIcon';
 import { useSelector, useDispatch } from 'react-redux';
 import { addFav, removeFav } from '../../../../store/favorite/actions';
 import FavIconEmpty from '../../../ui/icons/FavIconEmpty';
-import { getIconUrl } from '../../../../util/functions'
+import { getIconUrl } from '../../../../util/helpers'
 const CurrentCityHeader = () => {
     const weatherState = useSelector(state => state.weatherReducer);
     const settings = useSelector(state => state.settingsReducer);

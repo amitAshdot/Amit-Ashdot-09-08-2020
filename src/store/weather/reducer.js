@@ -4,8 +4,8 @@ import jsonCurrent from '../../dataMoc/current.json'
 
 const initialState = {
     isDayTime: true,
-    currentCityKey: null,
-    currentCityName: "",
+    currentCityKey: 215854,
+    currentCityName: "Tel Aviv",
     weatherIcon: 21,
     weatherText: "",
     searchArr: [jsonCurrent],

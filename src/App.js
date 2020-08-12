@@ -7,27 +7,30 @@ import { useSelector, useDispatch } from 'react-redux';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { Paper } from '@material-ui/core';
 import { initFav } from './store/favorite/actions';
-import { geoApi } from './store/weather/actions';
+import { geoApi, setChosenCity} from './store/weather/actions';
 import PageNotFound from './screens/PageNotFound';
 
 function App() {
   const settings = useSelector(state => state.settingsReducer);
+  const weather = useSelector(state => state.weatherReducer);
   const dispatch = useDispatch();
 
-  const prefersDarkMode = settings.darkMode;
   const theme = useMemo(
     () =>
       createMuiTheme({
         palette: {
-          type: prefersDarkMode ? 'dark' : 'light',
+          type: settings.darkMode ? 'dark' : 'light',
         },
       }),
-    [prefersDarkMode],
+    [settings.darkMode],
   );
 
   useEffect(() => {
     if (navigator.geolocation)
       navigator.geolocation.getCurrentPosition(getCooridors);
+    else {
+      dispatch(setChosenCity(weather.currentCityKey, weather.currentCityName))
+    }
     dispatch(initFav)
   }, [])
 

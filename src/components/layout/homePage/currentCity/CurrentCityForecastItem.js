@@ -1,5 +1,5 @@
 import React from 'react'
-import { getIconUrl } from '../../../../util/functions'
+import { getIconUrl } from '../../../../util/helpers'
 const CurrentCityForecastItem = (props) => {
     const { i, weekday, minTemp, maxTemp, icon, isDay } = props
     const color = isDay ? '#f7f7f780' : "#9197fb80"

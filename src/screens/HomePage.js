@@ -4,7 +4,7 @@ import HomepageBox from '../components/layout/homePage/HomepageBox';
 import { useSelector, useDispatch } from 'react-redux';
 import { setInput, getAutoComplete, setError } from '../store/weather/actions'
 import Loader from '../components/ui/Loader';
-import { isInputEnglish } from '../util/functions';
+import { isInputEnglish } from '../util/helpers';
 
 const HomePage = () => {
     const weatherState = useSelector(state => state.weatherReducer);

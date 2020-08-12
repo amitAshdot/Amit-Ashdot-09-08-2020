@@ -1,8 +1,6 @@
 import React from 'react'
-import { calcFahrenheit } from '../../../util/functions'
 import { useSelector, useDispatch } from 'react-redux';
-import { getIconUrl } from '../../../util/functions'
-import { Link } from 'react-router-dom';
+import { getIconUrl, calcFahrenheit } from '../../../util/helpers'
 import { setChosenCity, } from '../../../store/weather/actions'
 import { useHistory } from 'react-router-dom'
 
