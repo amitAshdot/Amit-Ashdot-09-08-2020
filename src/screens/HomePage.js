@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import SearchInput from '../components/ui/SearchInput';
 import HomepageBox from '../components/layout/homePage/HomepageBox';
 import { useSelector, useDispatch } from 'react-redux';
-import { setInput, getAutoComplete, setError } from '../store/weather/actions'
+import { setInput, getAutoComplete, setError, clearAutoComplete } from '../store/weather/actions'
 import Loader from '../components/ui/Loader';
 import { isInputEnglish } from '../util/helpers';
 
@@ -34,9 +34,11 @@ const HomePage = () => {
         }
         else dispatch(setError(""))
     }
+
+    const clearAuto = () => { dispatch(clearAutoComplete()) }
     const homeBox = currentCityKey ? <HomepageBox /> : loading ? <Loader /> : <h1>please search a city</h1>
     return (
-        <main className="main">
+        <main className="main" onClick={clearAuto}>
             <div className="main__error">
                 {error ? error : null}
             </div>
