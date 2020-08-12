@@ -49,7 +49,7 @@ export const setCity = (cityKey, cityName) => {
 }
 export const getAutoComplete = (autoCompleteText) => {
     return async dispatch => {
-        dispatch(fetchStart())
+        // dispatch(fetchStart())
         try {
             const res = await axios.get(`${url}/locations/v1/cities/autocomplete?apikey=${key}&q=${autoCompleteText}`);
             await dispatch(autoCompleteSuccess(res.data))

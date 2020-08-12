@@ -10,18 +10,11 @@ import AutoComplete from '../components/ui/AutoComplete';
 const HomePage = () => {
     const weatherState = useSelector(state => state.weatherReducer);
     const dispatch = useDispatch();
-    const { userSearchInput, currentCityKey, loading, error } = weatherState
-    useEffect(() => {
-        if (userSearchInput !== ' ' && userSearchInput.length) {
-            const timer = setTimeout(() => {
-                dispatch(getAutoComplete(weatherState.userSearchInput))
-            }, 450);
-            return () => {
-                clearTimeout(timer);
-            };
-        }
-    }, [userSearchInput]);
+    const { userSearchInput, loading, error } = weatherState;
 
+    useEffect(() => {
+
+    }, [])
     const handleChange = (event) => {
         event.preventDefault();
         dispatch(setInput(event.target.value))
@@ -37,7 +30,7 @@ const HomePage = () => {
     }
 
     const clearAuto = () => { dispatch(clearAutoComplete()) }
-    const homeBox = currentCityKey ? <HomepageBox /> : loading ? <Loader /> : <h1>please search a city</h1>
+    const homeBox = loading ? <Loader /> : <HomepageBox />
     const hasAutoComplete = weatherState.userSearchInput ? <AutoComplete /> : null
     const hasError = error ? error : null
 
