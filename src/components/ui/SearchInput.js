@@ -1,13 +1,12 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
-import AutoComplete from './AutoComplete';
-import { useSelector } from 'react-redux';
 
 const SearchInput = (props) => {
-    const weatherState = useSelector(state => state.weatherReducer);
-    const hasAutoComplete = weatherState.userSearchInput ? <AutoComplete /> : null
     return (
         <div className={`homepage__input`}>
+            <div className="main__error">
+                {props.hasError}
+            </div>
             <TextField
                 id="outlined-textarea"
                 label="Search"
@@ -19,7 +18,7 @@ const SearchInput = (props) => {
                 value={props.value}
                 color="primary"
             />
-            {hasAutoComplete}
+            {props.hasAutoComplete}
         </div >
     )
 }

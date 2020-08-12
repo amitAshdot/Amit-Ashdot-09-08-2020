@@ -7,9 +7,24 @@
 
   &__error {
     position: absolute;
-    top: 8rem;
-    color: red;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem 1rem;
+    width: 166%;
+    color: $color-primary-error;
     font-size: 1.6rem;
+    background-color: rgba($color-grey-dark-4, 0.5);
+    @include respond(tab-port) {
+    }
+
+    @include respond(phone) {
+      width: 133%;
+
+      left: 2rem;
+      transform: translate(-14%, -40%);
+      font-size: 1.3rem;
+    }
   }
   @include respond(tab-port) {
     margin-top: 1rem;

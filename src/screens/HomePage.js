@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setInput, getAutoComplete, setError, clearAutoComplete } from '../store/weather/actions'
 import Loader from '../components/ui/Loader';
 import { isInputEnglish } from '../util/helpers';
+import AutoComplete from '../components/ui/AutoComplete';
 
 const HomePage = () => {
     const weatherState = useSelector(state => state.weatherReducer);
@@ -37,11 +38,12 @@ const HomePage = () => {
 
     const clearAuto = () => { dispatch(clearAutoComplete()) }
     const homeBox = currentCityKey ? <HomepageBox /> : loading ? <Loader /> : <h1>please search a city</h1>
+    const hasAutoComplete = weatherState.userSearchInput ? <AutoComplete /> : null
+    const hasError = error ? error : null
+
     return (
         <main className="main" onClick={clearAuto}>
-            <div className="main__error">
-                {error ? error : null}
-            </div>
+
             <SearchInput
                 handleChange={handleChange}
                 onKeyPress={handleKeyPress}
@@ -49,6 +51,8 @@ const HomePage = () => {
                 label="Search"
                 placeholder={"ex. Tel Aviv"}
                 value={userSearchInput}
+                hasAutoComplete={hasAutoComplete}
+                hasError={hasError}
             />
             {homeBox}
         </main>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { countryToFlag } from '../../util/Autocomplete'
+import { countryToFlag } from '../../util/countryToFlag'
 import { setChosenCity, } from '../../store/weather/actions'
 import { Paper } from '@material-ui/core';
 
