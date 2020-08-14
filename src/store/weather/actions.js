@@ -10,7 +10,6 @@ export const setInput = (input) => {
 };
 
 export const setChosenCity = (cityKey, cityName) => {
-    debugger
     return async dispatch => {
         dispatch(setCity(cityKey, cityName))
         dispatch(fetchWeather(Number(cityKey)))
@@ -41,7 +40,6 @@ export const setError = (error) => {
     };
 };
 export const setCity = (cityKey, cityName) => {
-    debugger
     return async dispatch => {
         dispatch(setCityKey(Number(cityKey)))
         dispatch(setCityName(cityName))
