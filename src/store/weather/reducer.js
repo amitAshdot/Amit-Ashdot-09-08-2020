@@ -1,7 +1,6 @@
 import { weatherTypes } from './weatherTypes';
 import jsonForecast from '../../dataMoc/forecast.json'
 import jsonCurrent from '../../dataMoc/current.json'
-import jsonAutoComplete from '../../dataMoc/autoComplete.json'
 
 const initialState = {
     isDayTime: true,
@@ -13,7 +12,7 @@ const initialState = {
     fetchSearch: true,
     forecast: jsonForecast,
     userSearchInput: "",
-    autoCompleteList: jsonAutoComplete,
+    autoCompleteList: [],
     loading: false,
     error: ""
 };
