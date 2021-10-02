@@ -12,6 +12,7 @@ const AutoComplete = () => {
         dispatch(setChosenCity(chose.Key, chose.LocalizedName))
     }
     const listOfCountries = weatherState.autoCompleteList.map((item, i) => {
+
         return (
             <div className="auto-complete__box" key={i} onClick={() => handleClick(item)}>
                 <span>{countryToFlag(item.Country.ID)}</span>
@@ -21,6 +22,7 @@ const AutoComplete = () => {
             </div>
         )
     })
+
     return (
         <div className="auto-complete">
             <Paper>

@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { Paper } from '@material-ui/core';
 import { initFav } from './store/favorite/actions';
-import { geoApi, setChosenCity} from './store/weather/actions';
+import { geoApi, setChosenCity } from './store/weather/actions';
 import PageNotFound from './screens/PageNotFound';
 
 function App() {

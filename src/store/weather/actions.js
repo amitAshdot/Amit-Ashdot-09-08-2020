@@ -1,6 +1,7 @@
 import { weatherTypes } from './weatherTypes'
 import axios from 'axios';
 import { url, key } from '../../util/api'
+import jsonAutoComplete from '../../dataMoc/autoComplete.json'
 
 export const setInput = (input) => {
     return {
@@ -48,8 +49,9 @@ export const setCity = (cityKey, cityName) => {
 export const getAutoComplete = (autoCompleteText) => {
     return async dispatch => {
         try {
-            const res = await axios.get(`${url}/locations/v1/cities/autocomplete?apikey=${key}&q=${autoCompleteText}`);
-            await dispatch(autoCompleteSuccess(res.data))
+            // const res = await axios.get(`${url}/locations/v1/cities/autocomplete?apikey=${key}&q=${autoCompleteText}`);
+            await dispatch(autoCompleteSuccess(jsonAutoComplete))
+
         } catch (error) {
             fetchFailed(error)
         }
